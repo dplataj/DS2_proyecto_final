@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f9542d5e15.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class = "headerpagos">
+        <nav>
+        <a href="/"><img src="images\logo.png" ></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div>
+        <h3 class="title"> Monto a pagar</h3>
+        <h4 class="monto">200$</h4>
+    </div>
+    <div class="container">
+        <form action="">
+            <div class="rowpago">
+                <div class="colpago">
+                    <h3 class="title">Dirección de facturación</h3>
+                    <div class="inputBox">
+                        <span>Nombre completo: </span>
+                        <input type="text" placeholder="Jhon Doe">
+                    </div>
+                    <div class="inputBox">
+                        <span>Identificación: </span>
+                        <input type="text" placeholder="CC: 1111111111">
+                    </div>
+                    <div class="inputBox">
+                        <span>Email: </span>
+                        <input type="text" placeholder="ejemplo@ejemplo.com">
+                    </div>
+                    <div class="inputBox">
+                        <span>Dirección: </span>
+                        <input type="text" placeholder="Calle-Carrera-Transversal">
+                    </div>
+                    <div class="inputBox">
+                        <span>Ciudad: </span>
+                        <input type="text" placeholder="Barranquilla">
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>País: </span>
+                            <input type="text" placeholder="Colombia">
+                        </div>
+                        <div class="inputBox">
+                            <span>Codigo postal: </span>
+                            <input type="text" placeholder="123 456">
+                        </div>
+                    </div>
+                </div>
+                <div class="colpago">
+                    <h3 class="title">Pago</h3>
+                    <div class="inputBox">
+                        <span>Tarjetas aceptadas: </span>
+                        <img src="images/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>Nombre del portador: </span>
+                        <input type="text" placeholder="Jhon Doe">
+                    </div>
+                    <div class="inputBox">
+                        <span>Numero de la tarjeta: </span>
+                        <input type="text" placeholder="1111-2222-3333-4444">
+                    </div>
+                    <div class="inputBox">
+                        <span>Mes de expiración: </span>
+                        <input type="text" placeholder="Mayo">
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Año de expiración: </span>
+                            <input type="number" placeholder="2030">
+                        </div>
+                        <div class="inputBox">
+                            <span>CCV: </span>
+                            <input type="number" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Proceeder con el pago" class="submit-btn">
+        </form>
+    </div>
+</section>
+
+<!--------JavaScript para menú---------->
+<script>
+    var navLinks = document.getElementById("navLinks")
+
+    function showMenu(){
+        navLinks.style.right ="0";
+    }
+    function hideMenu(){
+        navLinks.style.right ="-200px";
+    }
+</script>
+</body>
+</html>

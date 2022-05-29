@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de pagos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f9542d5e15.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class=" header">
+        <nav>
+            <a href="/"><img src="images\logo.png" ></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="#modal">Pago</a></li>
+                    <li><a href="/saldo">Saldo</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>La mejor manera de pagar en linea</h1>
+            <p>Reliza tus compras y pagos en linea haciendo uso de Payfast,<br> una manera segura y rapida de realizar pagos.</p>
+            <a href="#modal" class = "hero-btn">¡Realiza un pago ya!</a>
+        </div>
+        <div class="containerpop" id="modal">
+            <div class="popup">
+                <div class="text-box">
+                    <h3>Seleccione el metodo de pago: </h3>
+                    <div class = "row">
+                        <div >
+                            <a href="/credito" class = "hero-btn">Tarjeta de credito</a>
+                        </div>
+                        <div >
+                            <a href="/debito" class = "hero-btn">Tarjeta de debito</a>
+                        </div>
+                    </div>
+                </div> 
+                <a href="" class="btn-close-popup">X</a>
+            </div>
+        </div>
+    </section>
+ <!---saldo---->
+
+ <section class="saldo">
+    <h1>Consulte el saldo de sus tarjetas</h1>
+    <p>Seleccione la tarjeta de la cual desea consultar el saldo</p>
+    <div class = "row">
+        <div class="card-col">
+            <h3>Tarjeta 1</h3>
+            <p>Número: *****1234</p>
+        </div>
+        <div class="card-col">
+            <h3>Tarjeta 2</h3>
+            <p>Número: *****2134</p>
+        </div>
+        <div class="card-col">
+            <h3>Tarjeta 3</h3>
+            <p>Número: *****4321</p>
+        </div>
+    </div>
+ </section>
+ 
+ <!--------JavaScript para menú---------->
+    <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right ="0";
+        }
+        function hideMenu(){
+            navLinks.style.right ="-200px";
+        }
+    </script>
+
+</body>
+</html>
