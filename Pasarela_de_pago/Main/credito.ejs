@@ -23,43 +23,39 @@
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
-    <div>
-        <h3 class="title"> Monto a pagar</h3>
-        <h4 class="monto">200$</h4>
-    </div>
-    <div class="container">
+    <div class="container" action="/add">
         <form action="">
             <div class="rowpago">
                 <div class="colpago">
                     <h3 class="title">Dirección de facturación</h3>
                     <div class="inputBox">
                         <span>Nombre completo: </span>
-                        <input type="text" placeholder="Jhon Doe">
+                        <input type="text" name="userName" placeholder="Jhon Doe">
                     </div>
                     <div class="inputBox">
                         <span>Identificación: </span>
-                        <input type="text" placeholder="CC: 1111111111">
+                        <input type="text" name= "userId" placeholder="1111111111">
                     </div>
                     <div class="inputBox">
                         <span>Email: </span>
-                        <input type="text" placeholder="ejemplo@ejemplo.com">
+                        <input type="text" name="email" placeholder="ejemplo@ejemplo.com">
                     </div>
                     <div class="inputBox">
                         <span>Dirección: </span>
-                        <input type="text" placeholder="Calle-Carrera-Transversal">
+                        <input type="text" name="address" placeholder="Calle-Carrera-Transversal">
                     </div>
                     <div class="inputBox">
                         <span>Ciudad: </span>
-                        <input type="text" placeholder="Barranquilla">
+                        <input type="text" name="city" placeholder="Barranquilla">
                     </div>
                     <div class="flex">
                         <div class="inputBox">
                             <span>País: </span>
-                            <input type="text" placeholder="Colombia">
+                            <input type="text" name="country" placeholder="Colombia">
                         </div>
                         <div class="inputBox">
                             <span>Codigo postal: </span>
-                            <input type="text" placeholder="123 456">
+                            <input type="text" name="postcode" placeholder="123 456">
                         </div>
                     </div>
                 </div>
@@ -71,27 +67,31 @@
                     </div>
                     <div class="inputBox">
                         <span>Nombre del portador: </span>
-                        <input type="text" placeholder="Jhon Doe">
+                        <input type="text" name="holdname" placeholder="Jhon Doe">
                     </div>
                     <div class="inputBox">
                         <span>Numero de la tarjeta: </span>
-                        <input type="text" placeholder="1111-2222-3333-4444">
+                        <input type="text" name="cardnum" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>Mes de expiración: </span>
-                        <input type="text" placeholder="Mayo">
+                        <input type="text" name="expmonth" placeholder="Mayo">
                     </div>
                     <div class="flex">
                         <div class="inputBox">
                             <span>Año de expiración: </span>
-                            <input type="number" placeholder="2030">
+                            <input type="number" name="expyear" placeholder="2030">
                         </div>
                         <div class="inputBox">
                             <span>CCV: </span>
-                            <input type="number" placeholder="123">
+                            <input type="number" name="ccv" placeholder="123">
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h3 class="title"> Monto a pagar</h3>
+                <h4 class="monto" name="monto">200$</h4>
             </div>
             <input type="submit" value="Proceeder con el pago" class="submit-btn">
         </form>

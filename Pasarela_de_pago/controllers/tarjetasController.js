@@ -32,6 +32,13 @@ controller.debt = (req,res) => {
     })
 }
 
+controller.save = (req,ress) => {
+    const data = req.body;
+    req.getConnection((err,conn)=>{
+        conn.query('INSERT INTO transaccion set ?', [data])
+    })
+}
+
 //CARD LIST 
 controller.list = (req, res)=> {
     req.getConnection((err, conn) =>{

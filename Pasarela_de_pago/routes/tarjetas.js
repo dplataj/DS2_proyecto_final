@@ -9,4 +9,8 @@ router.get('/debito', tarjetaController.debt)
 
 router.get('/credito', tarjetaController.cred)
 
+router.get('/tarjeta', tarjetaController.list)
+
+router.get('/transaccion', tarjetaController.listTran)
+
 module.exports = router;

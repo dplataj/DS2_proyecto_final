@@ -351,3 +351,7 @@ h3{
     box-sizing: border-box;
     transition: 0.5s;
 }
+thead {color:green;}
+.table, th, td {
+    border: 1px solid;
+  }

@@ -24,6 +24,7 @@ app.use(myConnection(mysql, {
     port: 3306,
     database: 'pasareladepagos'
 }, 'single'));
+app.use(express.urlencoded({extended: false}))
 
 //routes
 app.use('/', tarjetasRoutes);
