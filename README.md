@@ -1,9 +1,9 @@
 # DS2_proyecto_final
 
-**Tutorial para instalar base de datos**
+**Tutorial para instalar base de datos:**
 https://www.youtube.com/watch?v=FQ7XAygh0qA
 
-**Usuario y Contraseñas recomendos para la instalación*
+**Usuario y Contraseñas recomendos para la instalación**
 ```
 user: 'root'
 password: 'mysql2022'
