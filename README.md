@@ -1,7 +1,21 @@
 # DS2_proyecto_final
 
-Comado para instalar node en el proyecto: npm install express mysql morgan ejsexpress-myconection
-Subir el servidor: node Pasarela_de_pago/app.js
+**Tutorial para instalar base de datos**
+https://www.youtube.com/watch?v=FQ7XAygh0qA
+
+**Usuario y Contraseñas recomendos para la instalación*
+```
+user: 'root'
+password: 'mysql2022'
+```
+**Comado para instalar node en el proyecto**
+```
+npm install express mysql morgan ejsexpress-myconection
+```
+**Subir el servidor**
+```
+node Pasarela_de_pago/app.js
+```
 
 ## Tarjetas funcionales:
 
