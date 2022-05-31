@@ -28,31 +28,32 @@
             <thead>
                 <tr>
                     <th> Numero de tarjeta</th>
+                    <th>Valor de la transacion</th>
                     <th>Nombre portador</th>
-                    <th>Mes de expiración</th>
-                    <th>Año de expiración</th>
-                    <th>CCV</th>
-                    <th>Saldo</th>
-                    <th>Credito</th>
+                    <th>Email del cliente</th>
+                    <th>Direccion del cliente</th>
+                    <th>Ciudad del cliente</th>
+                    <th>Pais del cliente</th>
+                    <th>Codigo postal</th>
                 </tr>
             </thead>
             <tbody>
                 <% if (data) { %>
                     <% for (var i = 0 ; i < data.length; i++) { %>
                         <tr>
-                            <td><%= data[i].card_num %></td>
+                            <td><%= data[i].card_number %></td>
+                            <td><%= data[i].ammount %></td>
                             <td><%= data[i].holdername %></td>
-                            <td><%= data[i].expmonth %></td>
-                            <td><%= data[i].expyear %></td>
-                            <td><%= data[i].ccv %></td>
-                            <td><%= data[i].saldo %></td>
-                            <td><%= data[i].credito %></td>
+                            <td><%= data[i].email %></td>
+                            <td><%= data[i].addres %></td>
+                            <td><%= data[i].city %></td>
+                            <td><%= data[i].country %></td>
+                            <td><%= data[i].postalcode %></td>
                         </tr>
                     <% } %> 
                <% } %>
             </tbody>
         </table>
-        <h1>Credito 1= Si; 0= No</h1>
     </div>
 
 </section>

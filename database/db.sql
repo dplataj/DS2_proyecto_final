@@ -20,21 +20,15 @@ CREATE TABLE tarjeta(
 
 );
 
-CREATE TABLE cliente(
-    id INT UNSIGNED PRiMARY KEY,
-    cname VARCHAR(50) not NULL,
+CREATE TABLE transaccion(
+    card_number BIGINT UNSIGNED PRiMARY KEY,
+    ammount FLOAT(23),
+    holdername VARCHAR(50) NOT NULL,
     email VARCHAR(50),
     addres VARCHAR(50),
     city VARCHAR(50),
     country VARCHAR(50),
     postalcode VARCHAR(50)
-);
-
-CREATE TABLE transaccion(
-    id INT UNSIGNED AUTO_INCREMENT PRiMARY KEY,
-    ammount FLOAT(23),
-    card_number BIGINT UNSIGNED,
-    FOREIGN KEY(card_number) REFERENCES tarjeta(card_num)
 );
 
 INSERT INTO tarjeta VALUES (1000000000000000, 'Alejandro Polo', 01 , 26, 111, null , true );
@@ -53,5 +47,12 @@ INSERT INTO tarjeta VALUES (93212232422424231, 'Joshua Johnson', 01 , 27, 123, 1
 INSERT INTO tarjeta VALUES (2000000000000000, 'James Mcgill', 02 , 27, 124, null , true );
 INSERT INTO tarjeta VALUES (2024252523525243, 'Howard Hamlin', 03 , 27, 125, 234000 , false );
 
+-----Transaccion de prueba-----
+
+INSERT INTO transaccion 
+SELECT 1000000000000000,  2000, 'Alejandro Polo', 'apolo@gmail.com' , 'Clle 3B 311', 'Barranquilla', 'Colombia' , '802412'
+WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = 1000000000000000 AND expmonth = 01 AND expyear = 26 AND ccv =111);
+
+
+SELECT * FROM transaccion;
 SELECT * FROM tarjeta;
-SHOW TABLES;

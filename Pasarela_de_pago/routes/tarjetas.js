@@ -13,4 +13,10 @@ router.get('/tarjeta', tarjetaController.list)
 
 router.get('/transaccion', tarjetaController.listTran)
 
+router.post('/add', tarjetaController.save)
+
+router.get('/exito', tarjetaController.exito)
+
+router.get('/fail', tarjetaController.fail)
+
 module.exports = router;

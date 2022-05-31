@@ -23,8 +23,8 @@
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
-    <div class="container" action="/add">
-        <form action="">
+    <div class="container">
+        <form action="/add" method="POST">
             <div class="rowpago">
                 <div class="colpago">
                     <h3 class="title">Dirección de facturación</h3>
@@ -87,11 +87,17 @@
                             <input type="number" name="ccv" placeholder="123">
                         </div>
                     </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Monto a pagar: </span>
+                            <input type="text" name="monto" placeholder="3000">
+                        </div>
+                        <div class="inputBox">
+                            <span>Cuotas: </span>
+                            <input type="number" name="cuotas" placeholder="5">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h3 class="title"> Monto a pagar</h3>
-                <h4 class="monto" name="monto">200$</h4>
             </div>
             <input type="submit" value="Proceeder con el pago" class="submit-btn">
         </form>

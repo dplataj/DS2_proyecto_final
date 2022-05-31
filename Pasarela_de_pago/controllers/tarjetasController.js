@@ -32,10 +32,22 @@ controller.debt = (req,res) => {
     })
 }
 
-controller.save = (req,ress) => {
+//Procesar Transacción
+controller.save = (req,res) => {
     const data = req.body;
     req.getConnection((err,conn)=>{
-        conn.query('INSERT INTO transaccion set ?', [data])
+        conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?  WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?);', 
+        [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
+        (err,tarjeta)=>{
+            if(err){
+                res.redirect('/fail')
+            }
+            if(tarjeta.affectedRows == 0){
+                res.redirect('/fail')
+            }else{
+                res.redirect('/exito');
+            }
+        })
     })
 }
 
@@ -67,4 +79,25 @@ controller.listTran = (req, res)=> {
     });
 }
 
+//Exito page
+
+controller.exito = (req,res) => {
+    req.getConnection((err,conn)=> {
+        if(err){
+            res.json(err);
+        }
+        res.render('exito');
+    })
+}
+
+//Fail page
+
+controller.fail= (req,res) => {
+    req.getConnection((err,conn)=> {
+        if(err){
+            res.json(err);
+        }
+        res.render('fail');
+    })
+}
 module.exports = controller;

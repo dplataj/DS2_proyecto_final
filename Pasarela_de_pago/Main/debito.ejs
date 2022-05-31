@@ -23,12 +23,8 @@
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
-    <div>
-        <h3 class="title"> Monto a pagar</h3>
-        <h4 class="monto">200$</h4>
-    </div>
-    <div class="container" action="/add">
-        <form action="">
+    <div class="container" >
+        <form action="/add" method="POST">
             <div class="rowpago">
                 <div class="colpago">
                     <h3 class="title">Dirección de facturación</h3>
@@ -71,7 +67,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Numero de la tarjeta: </span>
-                        <input type="text" name="cardnum" placeholder="1111-2222-3333-4444">
+                        <input type="text" name="cardnum" placeholder="1111222233334444">
                     </div>
                     <div class="inputBox">
                         <span>Mes de expiración: </span>
@@ -86,6 +82,10 @@
                             <span>CCV: </span>
                             <input type="number" name="ccv" placeholder="123">
                         </div>
+                    </div>
+                    <div class="inputBox">
+                        <span>Monto a pagar: </span>
+                        <input type="text" name="monto" placeholder="3000">
                     </div>
                 </div>
             </div>
