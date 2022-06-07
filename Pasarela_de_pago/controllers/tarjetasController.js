@@ -36,7 +36,7 @@ controller.debt = (req,res) => {
 controller.save = (req,res) => {
     const data = req.body;
     req.getConnection((err,conn)=>{
-        conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?  WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?);', 
+        conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?  WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?)', 
         [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
         (err,tarjeta)=>{
             if(err){
