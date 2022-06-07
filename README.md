@@ -33,7 +33,7 @@ node Pasarela_de_pago/app.js
 
 | Numero de tarjeta | Numero de la tarjeta | Mes de expiracion | Año de expiración | CCV | Saldo | Tipo |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 1000000000000000 | Alejandro Polo | 01 | 26 | 111 | Credito  | N/A |
+| 1000000000000000 | Alejandro Polo | 01 | 26 | 111 | N/A |Credito |
 | 13212232422424231 | Alex Jones | 02 | 26 | 112 | 20000.47 | Debito |
 | 23212232422424231 | Michael Morbius | 03 | 26 | 113 | N/A | Credito |
 | 43212232422424231 | Jhon Doe | 04 | 26| 114 | 7000000 | Debito |
