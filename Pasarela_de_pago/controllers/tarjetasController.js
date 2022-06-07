@@ -42,17 +42,21 @@ controller.save = (req,res) => {
             if(err){
                 res.redirect('/fail')
             }
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date+' '+time;
             if(tarjeta.length == 0){
-                conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?', 
-                [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, false], (err,transac)=>{
+                conn.query('INSERT INTO transaccion (card_number, transctime, ammount, holdername, email, addres, city, country, concept, sede, success) VALUES (?, ? ,  ?, ?, ? , ?, ?, ? , ?, ?, ?);', 
+                [BigInt(data.cardnum), dateTime, parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country,data.concepto, data.sede, false], (err,transac)=>{
                     if(err){
                         res.json(err);
                     }
                     res.redirect('/fail')
                 })
             }else{
-                conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?, ? ', 
-                [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, true], (err,transac)=>{
+                conn.query('INSERT INTO transaccion (card_number, transctime, ammount, holdername, email, addres, city, country, concept, sede, success) VALUES (?, ? , ?, ?, ? , ?, ?, ? , ?, ?, ?);', 
+                [BigInt(data.cardnum), dateTime, parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.concepto, data.sede, true], (err,transac)=>{
                     if(err){
                         res.json(err);
                     }

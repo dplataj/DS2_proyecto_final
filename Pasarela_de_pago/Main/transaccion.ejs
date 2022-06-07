@@ -27,14 +27,17 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>ID de transaccion</th>
                     <th> Numero de tarjeta</th>
+                    <th> Fecha y hora de la transaccion</th>
                     <th>Valor de la transacion</th>
                     <th>Nombre portador</th>
                     <th>Email del cliente</th>
                     <th>Direccion del cliente</th>
                     <th>Ciudad del cliente</th>
                     <th>Pais del cliente</th>
-                    <th>Codigo postal</th>
+                    <th>Concepto de pago</th>
+                    <th>Sede</th>
                     <th>Exito de transaccion</th>
                 </tr>
             </thead>
@@ -42,14 +45,17 @@
                 <% if (data) { %>
                     <% for (var i = 0 ; i < data.length; i++) { %>
                         <tr>
+                            <td><%= data[i].id %></td>
                             <td><%= data[i].card_number %></td>
+                            <td><%= data[i].transctime %></td>
                             <td><%= data[i].ammount %></td>
                             <td><%= data[i].holdername %></td>
                             <td><%= data[i].email %></td>
                             <td><%= data[i].addres %></td>
                             <td><%= data[i].city %></td>
                             <td><%= data[i].country %></td>
-                            <td><%= data[i].postalcode %></td>
+                            <td><%= data[i].concept %></td>
+                            <td><%= data[i].sede%></td>
                             <td><%= data[i].success %></td>
                         </tr>
                     <% } %> 
