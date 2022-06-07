@@ -18,33 +18,12 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="\">Home</a></li>
-                   <!-------- <li><a href="pago.ejs">Pago</a></li>---------->
-                    <li><a href="">Saldo</a></li>
+                    <li><a href="\">Home</a></li>                    
                 </ul>
             </div>
             <i class="fa-solid fa-bars" onclick="showMenu()"></i>
         </nav>
-       <!-------- <h1>Aqui muestra el saldo</h1>---------->
-       <div class="container">
-            <form action="/saldoConsulta" method="POST">
-                <div class="rowpago">
-                    <div class="colpago">                       
-                        <div class="inputBox">
-                            <span>Numero de la tarjeta: </span>
-                            <input type="text" name="cardnum" placeholder="1111-2222-3333-4444">
-                        </div>
-                    </div>
-                    <div class="colpago">
-                        <div class="inputBox">
-                            <span>CCV: </span>
-                            <input type="text" name="ccv" placeholder="999">
-                        </div>
-                    </div>
-                </div>
-                <input type="submit" value="Consultar Saldo" class="submit-btn">
-            </form>
-        </div>
+        <h1>Aqui muestra el saldo</h1>
     </section>
 
     <!--------JavaScript para menú---------->

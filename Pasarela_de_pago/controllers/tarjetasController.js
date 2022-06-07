@@ -1,3 +1,5 @@
+const { NULL } = require("mysql/lib/protocol/constants/types");
+
 const controller = {}
 
 //Home Page route
@@ -87,6 +89,47 @@ controller.exito = (req,res) => {
             res.json(err);
         }
         res.render('exito');
+    })
+}
+
+//Consultar Saldo page route
+
+controller.view = (req,res) => {
+    req.getConnection((err,conn)=> {
+        if(err){
+            res.json(err);
+        }
+        res.render('saldo');
+    })
+}
+//Consultar Saldo-Action route
+
+controller.consultar = (req,res) => {
+    const data = req.body;
+    req.getConnection((err, conn) =>{
+        conn.query('SELECT card_num, ccv, expyear  FROM tarjeta WHERE card_num = ? and ccv = ?;',
+        [BigInt(data.cardnum),data.ccv],
+        (err, tarjeta) =>{
+        if(err){
+            res.json(err);
+        }else if(tarjeta.length > 0 ){
+            res.render('resultadoConsulta',{
+                data: tarjeta
+            });
+        }else{
+            res.redirect('/fail');
+        }       
+     });
+    });
+}
+//Resultado exitoso consulta de saldo Saldo page route
+
+controller.resultadoConsulta = (req,res) => {
+    req.getConnection((err,conn)=> {
+        if(err){
+            res.json(err);
+        }
+        res.render('ResultadoConsulta');
     })
 }
 

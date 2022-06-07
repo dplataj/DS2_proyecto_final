@@ -1,7 +1,7 @@
 {
   "name": "ds2_proyecto_final",
   "version": "1.0.0",
-  "description": "",
+  "description": "**Tutorial para instalar base de datos:**\r https://www.youtube.com/watch?v=FQ7XAygh0qA",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon Pasarela_de_pagos/app.js"

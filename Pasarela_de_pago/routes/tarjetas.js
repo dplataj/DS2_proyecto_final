@@ -19,4 +19,10 @@ router.get('/exito', tarjetaController.exito)
 
 router.get('/fail', tarjetaController.fail)
 
+router.get('/saldo', tarjetaController.view)
+
+router.post('/saldoConsulta', tarjetaController.consultar)
+
+router.get('/resultadoConsulta', tarjetaController.resultadoConsulta)
+
 module.exports = router;
