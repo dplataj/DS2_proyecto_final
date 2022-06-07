@@ -13,7 +13,7 @@ password: 'mysql2022'
 npm install express mysql morgan ejsexpress-myconection
 ```
 
-**Con respecto a la base de datos**
+**Con respecto a la base de datos: **
 Es recomendado ejecutar el siguiente comando en la base datos para el proyecto:
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
