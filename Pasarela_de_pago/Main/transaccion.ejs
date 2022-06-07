@@ -35,6 +35,7 @@
                     <th>Ciudad del cliente</th>
                     <th>Pais del cliente</th>
                     <th>Codigo postal</th>
+                    <th>Exito de transaccion</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,11 +50,13 @@
                             <td><%= data[i].city %></td>
                             <td><%= data[i].country %></td>
                             <td><%= data[i].postalcode %></td>
+                            <td><%= data[i].success %></td>
                         </tr>
                     <% } %> 
                <% } %>
             </tbody>
         </table>
+        <h2>Exito de transaccion 1= Si; 0= No</h2>
     </div>
 
 </section>

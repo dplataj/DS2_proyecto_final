@@ -36,16 +36,28 @@ controller.debt = (req,res) => {
 controller.save = (req,res) => {
     const data = req.body;
     req.getConnection((err,conn)=>{
-        conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?  WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?)', 
-        [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
+        conn.query('SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?', 
+        [BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
         (err,tarjeta)=>{
             if(err){
                 res.redirect('/fail')
             }
-            if(tarjeta.affectedRows == 0){
-                res.redirect('/fail')
+            if(tarjeta.length == 0){
+                conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?', 
+                [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, false], (err,transac)=>{
+                    if(err){
+                        res.json(err);
+                    }
+                    res.redirect('/fail')
+                })
             }else{
-                res.redirect('/exito');
+                conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?, ? ', 
+                [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, true], (err,transac)=>{
+                    if(err){
+                        res.json(err);
+                    }
+                    res.redirect('/exito');
+                })
             }
         })
     })
