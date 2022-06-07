@@ -123,7 +123,7 @@ controller.view = (req,res) => {
 controller.consultar = (req,res) => {
     const data = req.body;
     req.getConnection((err, conn) =>{
-        conn.query('SELECT card_num, ccv, expyear  FROM tarjeta WHERE card_num = ? and ccv = ?;',
+        conn.query('SELECT card_num, ccv, expyear, saldo, holdername FROM tarjeta WHERE card_num = ? and ccv = ?;',
         [BigInt(data.cardnum),data.ccv],
         (err, tarjeta) =>{
         if(err){

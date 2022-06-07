@@ -23,7 +23,29 @@
             </div>
             <i class="fa-solid fa-bars" onclick="showMenu()"></i>
         </nav>
-        <h1>Aqui muestra el saldo</h1>
+       <!-------- <h1>Aqui muestra el saldo</h1>---------->
+       <div class="container">
+                <div class="rowpago">
+                    <div class="colpago">
+                        <h3 class="title">Resultado de consulta</h3>
+                        <div class="title">
+                            <span>Nombre del Usuario: </span>
+                            <span><%= data[0].holdername %></span>
+                        </div>
+                        <div class="title">
+                            <span>Numero de tarjeta:: </span>
+                            <span><%= data[0].card_num %></span>
+                        </div>
+                        <div class="title">
+                            <span>Su saldo es de: </span>
+                            <span>$<%= data[0].saldo %></span>
+                        </div>
+                        <div>
+                            <a href="/saldo" class = "hero-btn">Realizar otra consulta</a>
+                        </div>          
+                    </div>
+                </div>
+        </div>
     </section>
 
     <!--------JavaScript para menú---------->
