@@ -12,6 +12,18 @@ password: 'mysql2022'
 ```
 npm install express mysql morgan ejsexpress-myconection
 ```
+
+**Con respecto a la base de datos:**
+Es recomendado ejecutar el siguiente comando en la base datos para el proyecto:
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+Donde  ``password`` es la contraseña establecido para la base de datos.
+Esto es para evitar el siguiente error:
+```
+ER_NOT_SUPPORTED_AUTH_MODE
+```
+Tambien se deben ejecutar las instrucciones del archivo ``db.sql``, el cual crea las tablas y las llena.
 **Subir el servidor**
 ```
 node Pasarela_de_pago/app.js

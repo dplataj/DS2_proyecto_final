@@ -38,16 +38,32 @@ controller.debt = (req,res) => {
 controller.save = (req,res) => {
     const data = req.body;
     req.getConnection((err,conn)=>{
-        conn.query('INSERT INTO transaccion SELECT ?, ?, ?, ?, ?, ?, ?, ?  WHERE EXISTS (SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?);', 
-        [BigInt(data.cardnum), parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.postcode, BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
+        conn.query('SELECT * FROM tarjeta WHERE card_num = ? AND expmonth = ? AND expyear = ? AND ccv = ?', 
+        [BigInt(data.cardnum),data.expmonth,data.expyear,data.ccv], 
         (err,tarjeta)=>{
             if(err){
                 res.redirect('/fail')
             }
-            if(tarjeta.affectedRows == 0){
-                res.redirect('/fail')
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date+' '+time;
+            if(tarjeta.length == 0){
+                conn.query('INSERT INTO transaccion (card_number, transctime, ammount, holdername, email, addres, city, country, concept, sede, success) VALUES (?, ? ,  ?, ?, ? , ?, ?, ? , ?, ?, ?);', 
+                [BigInt(data.cardnum), dateTime, parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country,data.concepto, data.sede, false], (err,transac)=>{
+                    if(err){
+                        res.json(err);
+                    }
+                    res.redirect('/fail')
+                })
             }else{
-                res.redirect('/exito');
+                conn.query('INSERT INTO transaccion (card_number, transctime, ammount, holdername, email, addres, city, country, concept, sede, success) VALUES (?, ? , ?, ?, ? , ?, ?, ? , ?, ?, ?);', 
+                [BigInt(data.cardnum), dateTime, parseFloat(data.monto), data.userName, data.email, data.address, data.city, data.country, data.concepto, data.sede, true], (err,transac)=>{
+                    if(err){
+                        res.json(err);
+                    }
+                    res.redirect('/exito');
+                })
             }
         })
     })
